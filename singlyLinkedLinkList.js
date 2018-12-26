@@ -71,4 +71,12 @@ class LinkedList {
     }
     return curr;
   }
+  setItem(position, val) {
+    let node = this.getItem(position);
+    if (node) {
+      node.value = val;
+      return this;
+    }
+    return false;
+  }
 }
