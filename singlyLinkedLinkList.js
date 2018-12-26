@@ -94,4 +94,18 @@ class LinkedList {
       return true;
     }
   }
+  remove(position) {
+    if (position < 0 || position >= this.length) return undefined;
+    if (position === 0) {
+      return this.shift();
+    } else if (position === this.length) {
+      return this.pop();
+    } else {
+      let prevNode = this.get(position - 1);
+      let nodeToRemove = prevNode.next;
+      prevNode.next = nodeToRemove.next;
+      this.length--;
+      return true;
+    }
+  }
 }
