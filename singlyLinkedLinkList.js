@@ -79,4 +79,19 @@ class LinkedList {
     }
     return false;
   }
+  insert(position, value) {
+    let newNode = new Node(value);
+    if (position < 0 || position > this.length) return false;
+    if (position === this.length) {
+      return !!this.push(value);
+    } else if (position === 0) {
+      return !!this.unshift(value);
+    } else {
+      let nodeToAttach = this.getItem(position - 1);
+      newNode.next = nodeToAttach.next;
+      nodeToAttach.next = newNode;
+      this.length++;
+      return true;
+    }
+  }
 }
