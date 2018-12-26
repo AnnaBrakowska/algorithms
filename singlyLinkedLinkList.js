@@ -49,4 +49,16 @@ class LinkedList {
     this.length -= 1;
     return oldHead;
   }
+  unshift(val) {
+    let newHead = new Node(val);
+    if (!this.head) {
+      this.head = newHead;
+      this.tail = newHead;
+    } else {
+      newHead.next = this.head;
+      this.head = newHead;
+      this.length += 1;
+      return this;
+    }
+  }
 }
