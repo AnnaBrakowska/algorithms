@@ -42,4 +42,11 @@ class LinkedList {
     }
     return curr;
   }
+  shift() {
+    if (!this.head) return undefined;
+    let oldHead = this.head;
+    this.head = this.head.next;
+    this.length -= 1;
+    return oldHead;
+  }
 }
