@@ -108,4 +108,21 @@ class LinkedList {
       return true;
     }
   }
+  reverse() {
+    //swap head and tail
+    let node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+
+    let next = null;
+    let prev = null;
+
+    for (let i = 0; i < this.length; i++) {
+      next = node.next;
+      node.next = prev;
+      prev = node;
+      node = next;
+    }
+    return this;
+  }
 }
