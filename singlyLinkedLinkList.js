@@ -61,4 +61,14 @@ class LinkedList {
       return this;
     }
   }
+  getItem(position) {
+    if (position < 0 || position >= this.length) return undefined;
+    let curr = this.head;
+    let i = 0;
+    while (i < position) {
+      curr = curr.next;
+      i++;
+    }
+    return curr;
+  }
 }
