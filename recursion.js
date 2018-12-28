@@ -19,6 +19,8 @@ function factorial() {
   return num * factorial(num - 1);
 }
 
+const factorial = num => (num === 1 ? 1 : num * factorial(num - 1));
+
 //4. recursion with helper method => collect odds from array
 
 function collectOdds(arr) {
@@ -114,3 +116,33 @@ function reverse(str) {
   strRev = strRev.concat(reverse(str.substr(0, str.length - 1)));
   return strRev;
 }
+
+// Given a string, compute recursively a new string where all the lowercase 'x' chars have been moved to the end of the string.
+
+function endX(str) {
+  let pos = str.indexOf("x");
+  return pos < 0
+    ? str
+    : str.substring(0, pos) + endX(str.substring(pos + 1)) + "x";
+}
+
+// endX("xxre") // "rexx"
+// endX("xxhixx") // "hixxxx"
+// endX("xhixhix") // "hihixxx"
+
+function nestParen2(str) {
+  if (str.length === 1 || str.length === 3) {
+    return false;
+  }
+  if (str[0] !== "(") {
+    return false;
+  }
+  if (str[str.length - 1] !== ")") {
+    return false;
+  }
+  if (str.length === 2) {
+    return true;
+  }
+  return nestParen2(str.slice(1, str.length - 1));
+}
+// console.log(nestParen2("(())"))
