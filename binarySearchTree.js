@@ -8,5 +8,21 @@ class BinarySearchTree {
   }
   add(value) {
     let node = new BinarySearchTree(value);
+    if (!this.value) {
+      this.value = node;
+    } else {
+      if (this.value > value) {
+        if (!this.left) {
+          this.left = node;
+        } else {
+          this.left.add(value);
+        }
+      } else {
+        if (!this.right) {
+          this.right = node;
+        }
+        this.right.add(value);
+      }
+    }
   }
 }
