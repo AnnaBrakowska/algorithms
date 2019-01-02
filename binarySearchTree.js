@@ -1,17 +1,12 @@
 //Binary search tree
 
-function Node() {
-  this.value = null;
-  this.left = null;
-  this.right = null;
-}
-
-function BinarySearchTree() {
-  this.root = null;
-}
-
-BinarySearchTree.addNode = function(value) {
-  if (this.root === null) {
-    this.root = value;
+class BinarySearchTree {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
   }
-};
+  add(value) {
+    let node = new BinarySearchTree(value);
+  }
+}
